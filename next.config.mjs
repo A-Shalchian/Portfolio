@@ -1,13 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
+    // Find the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg")
     );
 
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
+      // Reapply the existing rule, but only for SVG imports ending in ?url
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
@@ -17,7 +17,9 @@ const nextConfig = {
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        resourceQuery: {
+          not: [...(fileLoaderRule.resourceQuery?.not || []), /url/],
+        }, // exclude if *.svg?url
         use: {
           loader: "@svgr/webpack",
           options: {
@@ -27,7 +29,7 @@ const nextConfig = {
                   name: "preset-default",
                   params: {
                     overrides: {
-                      removeViewBox: false,
+                      removeViewBox: false, // Keep the viewBox attribute for proper scaling
                     },
                   },
                 },
@@ -38,10 +40,20 @@ const nextConfig = {
       }
     );
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    // Modify the file loader rule to ignore *.svg, as it's now handled above
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
+  },
+
+  // Additional Next.js configuration
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ["example.com"], // Add domains for remote images
+  },
+  env: {
+    CUSTOM_ENV_VARIABLE: process.env.CUSTOM_ENV_VARIABLE,
   },
 };
 
