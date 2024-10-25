@@ -19,42 +19,93 @@ export const HeroSection = () => {
         <div className="hero-ring size-[1020px]"></div>
         <div className="hero-ring size-[1220px]"></div>
 
-        <HeroOrbit size={800} rotation={-72}>
-          <StarIcon className="size-28 text-emerald-300" />
+        <HeroOrbit size={400} rotation={120} shouldOrbit orbitDuration="25s">
+          <div className="size-4 rounded-full bg-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={550} rotation={20}>
-          <StarIcon className="size-12 text-emerald-300" />
-        </HeroOrbit>
-        <HeroOrbit size={590} rotation={95}>
-          <StarIcon className="size-8 text-emerald-300" />
-        </HeroOrbit>
-        <HeroOrbit size={430} rotation={-14}>
+        <HeroOrbit
+          size={430}
+          rotation={-14}
+          shouldOrbit
+          orbitDuration="27s"
+          shouldSpin
+          spinDuration="4s"
+        >
           <Sparkle className="size-8 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={440} rotation={70}>
+        <HeroOrbit
+          size={440}
+          rotation={70}
+          shouldOrbit
+          orbitDuration="29s"
+          shouldSpin
+          spinDuration="4s"
+        >
           <Sparkle className="size-5 text-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={530} rotation={175}>
-          <Sparkle className="size-10 text-emerald-300/20" />
-        </HeroOrbit>
-        <HeroOrbit size={710} rotation={150}>
-          <Sparkle className="size-14 text-emerald-300/20" />
-        </HeroOrbit>
-        <HeroOrbit size={700} rotation={-30}>
-          <div className="size-3 rounded-full bg-emerald-300/20" />
-        </HeroOrbit>
-        <HeroOrbit size={520} rotation={41}>
+        <HeroOrbit size={520} rotation={41} shouldOrbit orbitDuration="36s">
           <div className="size-2 rounded-full bg-emerald-300/20" />
         </HeroOrbit>
-        <HeroOrbit size={400} rotation={120}>
-          <div className="size-4 rounded-full bg-emerald-300/20" />
+        <HeroOrbit
+          size={530}
+          rotation={175}
+          shouldOrbit
+          orbitDuration="38s"
+          shouldSpin
+          spinDuration="4s"
+        >
+          <Sparkle className="size-10 text-emerald-300/20" />
+        </HeroOrbit>
+        <HeroOrbit
+          size={550}
+          rotation={20}
+          shouldOrbit
+          orbitDuration="40s"
+          shouldSpin
+          spinDuration="6s"
+        >
+          <StarIcon className="size-12 text-emerald-300" />
+        </HeroOrbit>
+        <HeroOrbit
+          size={590}
+          rotation={95}
+          shouldOrbit
+          orbitDuration="42s"
+          shouldSpin
+          spinDuration="6s"
+        >
+          <StarIcon className="size-8 text-emerald-300" />
+        </HeroOrbit>
+        <HeroOrbit size={700} rotation={-30} shouldOrbit orbitDuration="44s">
+          <div className="size-3 rounded-full bg-emerald-300/20" />
+        </HeroOrbit>
+        <HeroOrbit
+          size={710}
+          rotation={150}
+          shouldOrbit
+          orbitDuration="46s"
+          shouldSpin
+          spinDuration="6s"
+        >
+          <Sparkle className="size-14 text-emerald-300/20" />
+        </HeroOrbit>
+        <HeroOrbit
+          size={800}
+          rotation={-72}
+          shouldOrbit
+          orbitDuration="48s"
+          shouldSpin
+          spinDuration="6s"
+        >
+          <StarIcon className="size-28 text-emerald-300" />
         </HeroOrbit>
       </div>
       <div className="container">
         <div className="flex flex-col items-center">
           <Image src={memojiImage} alt="my picture" className="size-[100px]" />
           <div className="bg-gray-950 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg">
-            <div className="bg-green-500 size-2.5 rounded-full"></div>
+            <div className="bg-green-500 size-2.5 rounded-full relative">
+              <div className="bg-green-500 absolute inset-0 rounded-full animate-ping-large"></div>
+            </div>
             <div className="text-sm font-medium">
               Available for new projects
             </div>

@@ -25,8 +25,26 @@ const config: Config = {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
       },
+      animation: {
+        // Extending the default Tailwind animations instead of replacing
+        spin: "spin 1s linear infinite", // Keeping the default `animate-spin`
+        "ping-large": "ping-large 1s ease-in-out infinite",
+      },
+      keyframes: {
+        // Extending keyframes as well
+        spin: {
+          to: { transform: "rotate(360deg)" }, // Default spin keyframes
+        },
+        "ping-large": {
+          "75%, 100%": {
+            transform: "scale(3.2)",
+            opacity: "0",
+          },
+        },
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
