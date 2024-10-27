@@ -29,6 +29,7 @@ const config: Config = {
         // Extending the default Tailwind animations instead of replacing
         spin: "spin 1s linear infinite", // Keeping the default `animate-spin`
         "ping-large": "ping-large 1s ease-in-out infinite",
+        "move-left": "move-left 1s linear infinite",
       },
       keyframes: {
         // Extending keyframes as well
@@ -39,6 +40,14 @@ const config: Config = {
           "75%, 100%": {
             transform: "scale(3.2)",
             opacity: "0",
+          },
+        },
+        "move-left": {
+          "0%": {
+            transform: "translateX(0%)",
+          },
+          "100%": {
+            transform: "translateX(-50%)",
           },
         },
       },
