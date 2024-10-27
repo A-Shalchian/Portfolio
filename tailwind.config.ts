@@ -30,6 +30,7 @@ const config: Config = {
         spin: "spin 1s linear infinite", // Keeping the default `animate-spin`
         "ping-large": "ping-large 1s ease-in-out infinite",
         "move-left": "move-left 1s linear infinite",
+        "move-right": "move-right 1s linear infinite",
       },
       keyframes: {
         // Extending keyframes as well
@@ -48,6 +49,14 @@ const config: Config = {
           },
           "100%": {
             transform: "translateX(-50%)",
+          },
+        },
+        "move-right": {
+          "0%": {
+            transform: "translateX(-50%)",
+          },
+          "100%": {
+            transform: "translateX(0%)",
           },
         },
       },
