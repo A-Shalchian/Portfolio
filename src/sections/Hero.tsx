@@ -116,8 +116,7 @@ export const HeroSection = () => {
             Arash Shalchian
           </h1>
           <p className="mt-4 text-center text-white/70 md:text-lg">
-            I specialize in
-            -----------------------------------------------------------------------
+            I specialize in Building beautiful and performant web applications
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
