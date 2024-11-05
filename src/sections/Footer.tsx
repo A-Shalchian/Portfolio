@@ -6,12 +6,8 @@ const footerLinks = [
     href: "https://www.youtube.com/@arashshalchian",
   },
   {
-    title: "Twitch",
-    href: "https://www.twitch.tv/arashplayz",
-  },
-  {
-    title: "Instagram",
-    href: "https://www.instagram.com/ilestarash/",
+    title: "Github",
+    href: "https://github.com/A-Shalchian",
   },
   {
     title: "LinkedIn",
