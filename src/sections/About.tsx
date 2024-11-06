@@ -1,7 +1,6 @@
 "use client";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
 import JavascriptIcon from "@/assets/icons/square-js.svg";
 import ReactIcon from "@/assets/icons/react.svg";
@@ -10,7 +9,7 @@ import TailWindCSSIcon from "@/assets/icons/tailwind.svg";
 import MongoDBIcon from "@/assets/icons/mongodb-leaf.svg";
 import NodeJSIcon from "@/assets/icons/nodejsDark.svg";
 import mapImage from "@/assets/images/map.png";
-import smileMemoji from "@/assets/images/memoji-smile.png";
+import smileMemoji from "@/assets/images/memoji-map.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
@@ -101,7 +100,7 @@ export const AboutSection = () => {
             className="grid grid-cols-1 gap-8 md:grid 
           md:grid-cols-5 lg:grid-cols-3"
           >
-            <Card className="h-[320px] md:col-span-2 lg:col-span-1">
+            {/* <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
                 title="My Reads"
                 description="Explore my favorite book"
@@ -109,16 +108,14 @@ export const AboutSection = () => {
               <div className="w-40 mx-auto mt-2 md:mt-0">
                 <Image src={bookImage} alt="Book Cover" />
               </div>
-            </Card>
-            <Card className="h-[320px]  md:col-span-3 lg:col-span-2">
+            </Card> */}
+            <Card className="h-[320px]  md:col-span-6 lg:col-span-3">
               <CardHeader
-                title="My Toolbox"
+                title="My Tech Stack"
                 description="Explore the techs and tools I use to create digital experiences"
-                className=""
               />
               <ToolboxItems
                 items={toolboxItems}
-                className=""
                 itemsWrapperClassName="animate-move-left [animation-duration:15s]"
               />
               <ToolboxItems
