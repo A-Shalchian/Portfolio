@@ -119,17 +119,21 @@ export const HeroSection = () => {
             I specialize in Building beautiful and performant web applications
           </p>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
-          <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
-            <span className="font-semibold">Explore my Work</span>
-            <ArrowDown className="size-4" />
-          </button>
-          <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
-            <span className="font-semibold tracking-wider">
-              Let&apos;s Connect
-            </span>
-            <span>👋</span>
-          </button>
+        <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 relative z-10">
+          <a href="#projects">
+            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+              <span className="font-semibold">Explore my Work</span>
+              <ArrowDown className="size-4" />
+            </button>
+          </a>
+          <a href="#contact">
+            <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+              <span className="font-semibold tracking-wider">
+                Let&apos;s Connect
+              </span>
+              <span>👋</span>
+            </button>
+          </a>
         </div>
       </div>
     </div>
