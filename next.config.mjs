@@ -50,7 +50,14 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["example.com"], // Add domains for remote images
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "shalchian.vercel.app", // replace with your actual image domain
+        pathname: "/**",
+      },
+      // You can add more patterns here if needed
+    ],
   },
   env: {
     CUSTOM_ENV_VARIABLE: process.env.CUSTOM_ENV_VARIABLE,
