@@ -2,12 +2,17 @@
 import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import Image from "next/image";
-import JavascriptIcon from "@/assets/icons/square-js.svg";
-import ReactIcon from "@/assets/icons/react.svg";
-import GitHubIcon from "@/assets/icons/github.svg";
-import TailWindCSSIcon from "@/assets/icons/tailwind.svg";
-import MongoDBIcon from "@/assets/icons/mongodb-leaf.svg";
-import NodeJSIcon from "@/assets/icons/nodejsDark.svg";
+import JavascriptIcon from "@/assets/icons/javascript-original.svg";
+import ReactIcon from "@/assets/icons/react-original.svg";
+import GitHubIcon from "@/assets/icons/github-original.svg";
+import TailWindCSSIcon from "@/assets/icons/tailwindcss-original.svg";
+import TypeScriptIcon from "@/assets/icons/typescript-original.svg";
+import ExpressIcon from "@/assets/icons/express-original.svg";
+import GitIcon from "@/assets/icons/git-original.svg";
+import MongoDBIcon from "@/assets/icons/mongodb-original.svg";
+import NextjsIcon from "@/assets/icons/nextjs-original.svg";
+import NodeJSIcon from "@/assets/icons/nodejs-plain.svg";
+import NpmIcon from "@/assets/icons/npm-original-wordmark.svg";
 import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-map.png";
 import { CardHeader } from "@/components/CardHeader";
@@ -25,6 +30,10 @@ const toolboxItems = [
     iconType: TailWindCSSIcon,
   },
   {
+    title: "Express",
+    iconType: ExpressIcon,
+  },
+  {
     title: "MongoDB",
     iconType: MongoDBIcon,
   },
@@ -33,12 +42,24 @@ const toolboxItems = [
     iconType: ReactIcon,
   },
   {
-    title: "Node",
-    iconType: NodeJSIcon,
+    title: "TypeScript",
+    iconType: TypeScriptIcon,
   },
   {
-    title: "Express",
-    iconType: JavascriptIcon,
+    title: "Next.js",
+    iconType: NextjsIcon,
+  },
+  {
+    title: "Npm",
+    iconType: NpmIcon,
+  },
+  {
+    title: "Git",
+    iconType: GitIcon,
+  },
+  {
+    title: "Node",
+    iconType: NodeJSIcon,
   },
   {
     title: "GitHub",
