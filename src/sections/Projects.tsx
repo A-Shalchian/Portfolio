@@ -1,5 +1,7 @@
 import darkSaasLandingPage from "@/assets/images/dark-saas-landing-page.png";
 import FitSho from "@/assets/images/fitsho.png";
+import ttt from "@/assets/images/ttt.png";
+import gomoku from "@/assets/images/gomoku.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
@@ -9,7 +11,7 @@ import { Card } from "@/components/Card";
 const portfolioProjects = [
   {
     company: "FitSho",
-    year: "2024",
+    year: "2025",
     title: "Fitness App",
     results: [
       { title: "Improved site speed by 20%" },
@@ -19,6 +21,30 @@ const portfolioProjects = [
     link: "https://github.com/A-Shalchian/fitsho",
     image: FitSho,
   },
+  {
+    company: "Gomoku",
+    year: "2025",
+    title: "Gomoku Game",
+    results: [
+      { title: "MiniMax function implemented with alpha-beta pruning" },
+      { title: "built with Java, made 20% faster" },
+    ],
+    link: "https://github.com/A-Shalchian/Gomoku-9x9",
+    image: gomoku,
+  },
+  {
+    company: "Tic Tac Toe",
+    year: "2025",
+    title: "Infinite Tic Tac Toe",
+    results: [
+      { title: "Unique TTT with a twist" },
+      { title: "Responsive design for all devices" },
+      { title: "Real-time multiplayer functionality" },
+    ],
+    link: "https://infinitic-tac-toe.vercel.app/",
+    image: ttt,
+  },
+
   {
     company: "Acme Corp",
     year: "Coming Soon",
