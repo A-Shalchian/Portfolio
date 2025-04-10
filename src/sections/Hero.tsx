@@ -115,19 +115,19 @@ export const HeroSection = () => {
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-widest">
             Arash Shalchian
           </h1>
-          <p className="mt-4 text-center text-white/70 md:text-lg">
+          <p className="mt-4 text-center text-white/70 md:text-lg ">
             I specialize in Building beautiful and performant web applications
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 relative z-10">
           <a href="#projects">
-            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl">
+            <button className="inline-flex items-center gap-2 border border-white/15 px-6 h-12 rounded-xl hover:bg-white/10 transition-colors duration-200">
               <span className="font-semibold">Explore my Work</span>
               <ArrowDown className="size-4" />
             </button>
           </a>
           <a href="#contact">
-            <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl">
+            <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900 h-12 px-6 rounded-xl hover:bg-white/90 transition-colors duration-200">
               <span className="font-semibold tracking-wider">
                 Let&apos;s Connect
               </span>
