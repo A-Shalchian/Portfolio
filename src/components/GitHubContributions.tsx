@@ -72,42 +72,42 @@ export const GitHubContributions = () => {
   };
 
   return (
-    <div className="group h-full p-8 bg-white dark:bg-slate-800/95 rounded-2xl flex flex-col border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500">
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-3">
-          <div className="p-2 bg-gray-100 dark:bg-slate-700/70 rounded-lg group-hover:bg-gray-200 dark:group-hover:bg-slate-600/70 transition-colors duration-300">
-            <Github className="w-7 h-7 text-gray-700 dark:text-slate-300" />
+    <div className="group h-full p-4 lg:p-5 bg-white dark:bg-slate-800/95 rounded-2xl flex flex-col border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500">
+      <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
+        <div className="flex items-center gap-2">
+          <div className="p-1.5 bg-gray-100 dark:bg-slate-700/70 rounded-lg group-hover:bg-gray-200 dark:group-hover:bg-slate-600/70 transition-colors duration-300">
+            <Github className="w-5 h-5 lg:w-6 lg:h-6 text-gray-700 dark:text-slate-300" />
           </div>
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-700 dark:from-slate-100 dark:to-blue-100 bg-clip-text text-transparent">
+          <h2 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-700 dark:from-slate-100 dark:to-blue-100 bg-clip-text text-transparent">
             GitHub Contributions
           </h2>
         </div>
         {!loading && (
-          <span className="text-sm text-gray-600 dark:text-slate-400">
+          <span className="text-xs text-gray-600 dark:text-slate-400">
             {totalContributions} contributions this year
           </span>
         )}
       </div>
 
-      <div className="flex-1 overflow-y-hidden">
+      <div className="flex-1 overflow-y-hidden min-h-0">
         {loading ? (
           <div className="flex items-center justify-center h-full">
-            <p className="text-base text-gray-600 dark:text-slate-400">Loading contributions...</p>
+            <p className="text-sm text-gray-600 dark:text-slate-400">Loading contributions...</p>
           </div>
         ) : (
           <div
             ref={scrollContainerRef}
-            className="flex gap-[4px] overflow-x-auto h-full pb-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
+            className="flex gap-[3px] overflow-x-auto h-full pb-1 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
           >
             {weeks.map((week, weekIndex) => (
-              <div key={weekIndex} className="flex flex-col gap-[4px]">
+              <div key={weekIndex} className="flex flex-col gap-[3px]">
                 {week.contributionDays.map((day, dayIndex) => (
                   <a
                     key={dayIndex}
                     href={`https://github.com/A-shalchian?tab=overview&from=${day.date}&to=${day.date}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-[16px] h-[16px] rounded-sm transition-all duration-200 hover:ring-2 hover:ring-gray-400 dark:hover:ring-slate-500 hover:scale-125 cursor-pointer border border-gray-200 dark:border-slate-600/50"
+                    className="w-[14px] h-[14px] lg:w-[16px] lg:h-[16px] rounded-sm transition-all duration-200 hover:ring-2 hover:ring-gray-400 dark:hover:ring-slate-500 hover:scale-125 cursor-pointer border border-gray-200 dark:border-slate-600/50"
                     style={{
                       backgroundColor: getContributionColor(day.contributionCount),
                     }}

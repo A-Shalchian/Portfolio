@@ -15,28 +15,28 @@ export default function Home() {
       </div>
       {/* Grid Container - Fixed height on large screens, scrollable on mobile */}
       <div className="relative z-10 h-[calc(100vh-6rem)] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto lg:grid-rows-20 gap-4">
-        {/* Profile - Top Left (50%) */}
-        <div className="min-h-[300px] lg:min-h-0 lg:row-span-10">
+        {/* Profile - Top Left (60% height) */}
+        <div className="min-h-[300px] lg:min-h-0 lg:row-span-12 lg:row-start-1 lg:col-start-1">
           <Profile />
         </div>
 
-        {/* Work Experience - Full Height (100%) */}
-        <div className="min-h-[300px] lg:min-h-0 lg:row-span-20">
+        {/* Work Experience - Top Middle (60% height) */}
+        <div className="min-h-[300px] lg:min-h-0 lg:row-span-12 lg:row-start-1 lg:col-start-2">
           <WorkExperience />
         </div>
 
-        {/* Education - Top Right (65%) */}
-        <div className="min-h-[300px] lg:min-h-0 lg:row-span-13">
+        {/* Education - Top Right */}
+        <div className="min-h-[300px] lg:min-h-0 lg:row-span-12 lg:row-start-1 lg:col-start-3">
           <Education />
         </div>
 
-        {/* Skills - Bottom Left (50%) */}
-        <div className="min-h-[300px] lg:min-h-0 lg:row-span-10">
+        {/* Skills - Bottom Left + Middle (40% height, spans 2 columns) */}
+        <div className="min-h-[300px] lg:min-h-0 lg:row-span-8 lg:row-start-13 lg:col-start-1 lg:col-span-2">
           <Skills />
         </div>
 
-        {/* GitHub Contributions - Bottom Right (35%) */}
-        <div className="min-h-[300px] lg:min-h-0 lg:row-span-7">
+        {/* GitHub Contributions - Bottom Right */}
+        <div className="min-h-[300px] lg:min-h-0 lg:row-span-8 lg:row-start-13 lg:col-start-3">
           <GitHubContributions />
         </div>
       </div>
