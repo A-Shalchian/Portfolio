@@ -5,11 +5,20 @@ export const Education = () => {
     {
       degree: "Bachelor of Science",
       field: "Computer Science",
-      school: "University Name",
-      period: "2019 - 2023",
+      school: "George Brown College",
+      period: "2023 - 2026",
       gpa: "3.8/4.0",
+      honors: ["Dean's List"],
+      certifications: ["AWS Certified Solutions Architect"],
+      coursework: [
+        "Data Structures & Algorithms",
+        "Web Development",
+        "Database Systems",
+        "Software Engineering",
+        "Object-Oriented Programming",
+        "Computer Networks"
+      ],
     },
-    // Add more education entries as needed
   ];
 
   return (
@@ -34,6 +43,54 @@ export const Education = () => {
             <p className="text-xs text-gray-500 dark:text-slate-400 mt-1.5">{edu.period}</p>
             {edu.gpa && (
               <p className="text-xs text-gray-500 dark:text-slate-400 mt-0.5">GPA: {edu.gpa}</p>
+            )}
+
+            {edu.honors && edu.honors.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-semibold text-gray-700 dark:text-slate-200 mb-1">Honors & Awards</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {edu.honors.map((honor, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-md border border-amber-200 dark:border-amber-700/50"
+                    >
+                      {honor}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {edu.certifications && edu.certifications.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-semibold text-gray-700 dark:text-slate-200 mb-1">Certifications</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {edu.certifications.map((cert, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-md border border-blue-200 dark:border-blue-700/50"
+                    >
+                      {cert}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {edu.coursework && edu.coursework.length > 0 && (
+              <div className="mt-3">
+                <p className="text-xs font-semibold text-gray-700 dark:text-slate-200 mb-1">Relevant Coursework</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {edu.coursework.map((course, i) => (
+                    <span
+                      key={i}
+                      className="text-xs px-2 py-1 bg-gray-100 dark:bg-slate-600/50 text-gray-700 dark:text-slate-300 rounded-md border border-gray-200 dark:border-slate-500/50"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
             )}
           </div>
         ))}

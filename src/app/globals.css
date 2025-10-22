@@ -2,6 +2,21 @@
 @import "tailwindcss";
 
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    min-height: 100%;
+  }
+
   .nav-item {
     @apply px-12 py-1.5 rounded-full text-gray-600 dark:text-gray-400 text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-700
      hover:text-gray-900 dark:hover:text-white transition-all duration-1000 ease-in-out;
@@ -19,6 +34,15 @@
   .animate-gradient {
     background-size: 200% auto;
     animation: gradient 3s ease infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
   }
 
   /* Custom scrollbar - Light mode */

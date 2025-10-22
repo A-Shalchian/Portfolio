@@ -9,7 +9,7 @@ export const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-10 ">
+    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-50">
       <nav className="flex p-0.25 border justify-center border-gray-200 dark:border-slate-600/50 rounded-full bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl shadow-lg">
         <Link
           href="/"

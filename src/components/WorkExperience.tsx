@@ -3,12 +3,11 @@ import { Briefcase } from "lucide-react";
 export const WorkExperience = () => {
   const experiences = [
     {
-      title: "Software Developer",
-      company: "Company Name",
-      period: "2023 - Present",
-      description: "Building modern web applications",
+      title: "Freelance Software Developer",
+      company: "Upwork",
+      period: "2024 - Present",
+      description: "Building custom software solutions and products for diverse clients across multiple industries. Delivering end-to-end development services including web applications, backend systems, and software architecture.",
     },
-    // Add more experiences as needed
   ];
 
   return (
