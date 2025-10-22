@@ -8,7 +8,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["var(--font-monocraft)", "monospace"],
+      },
+    },
   },
   plugins: [],
 };

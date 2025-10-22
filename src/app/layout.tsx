@@ -1,17 +1,73 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const monocraft = localFont({
+  src: [
+    {
+      path: "../fonts/Monocraft-ExtraLight-11.ttf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-ExtraLight-Italic-12.ttf",
+      weight: "200",
+      style: "italic",
+    },
+    {
+      path: "../fonts/Monocraft-Light-09.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-Light-Italic-10.ttf",
+      weight: "300",
+      style: "italic",
+    },
+    {
+      path: "../fonts/Monocraft-01.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-Italic-02.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../fonts/Monocraft-SemiBold-07.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-SemiBold-Italic-08.ttf",
+      weight: "600",
+      style: "italic",
+    },
+    {
+      path: "../fonts/Monocraft-Bold-05.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-Bold-Italic-06.ttf",
+      weight: "700",
+      style: "italic",
+    },
+    {
+      path: "../fonts/Monocraft-Black-03.ttf",
+      weight: "900",
+      style: "normal",
+    },
+    {
+      path: "../fonts/Monocraft-Black-Italic-04.ttf",
+      weight: "900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-monocraft",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-gray-900 dark:via-slate-900 dark:to-gray-950`}
+        className={`${monocraft.variable} font-sans antialiased bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-gray-900 dark:via-slate-900 dark:to-gray-950`}
       >
         <ThemeProvider>
           <Navbar />
