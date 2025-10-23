@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
 import { Home, Code, Moon, Sun } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export const Navbar = () => {
-  const [activeItem, setActiveItem] = useState("/");
+  const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -14,22 +14,20 @@ export const Navbar = () => {
         <Link
           href="/"
           className={`nav-item ${
-            activeItem === "/"
+            pathname === "/"
               ? "bg-gray-200 dark:bg-slate-700/70 text-gray-900 dark:text-white"
               : "hover:bg-gray-100 dark:hover:bg-slate-700/70 hover:text-gray-900 dark:hover:text-white"
           }`}
-          onClick={() => setActiveItem("/")}
         >
           <Home />
         </Link>
         <Link
           href="/projects"
           className={`nav-item ${
-            activeItem === "projects"
+            pathname === "/projects"
               ? "bg-gray-200 dark:bg-slate-700/70 text-gray-900 dark:text-white"
               : "hover:bg-gray-100 dark:hover:bg-slate-700/70 hover:text-gray-900 dark:hover:text-white"
           }`}
-          onClick={() => setActiveItem("projects")}
         >
           <Code />
         </Link>
