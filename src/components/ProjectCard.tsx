@@ -18,7 +18,7 @@ import {
 } from "react-icons/si";
 
 // Map of tech names to their icons
-const techIcons: { [key: string]: JSX.Element } = {
+const techIcons: Record<string, React.ReactElement> = {
   JavaScript: <SiJavascript className="w-4 h-4" />,
   TypeScript: <SiTypescript className="w-4 h-4" />,
   React: <SiReact className="w-4 h-4" />,
