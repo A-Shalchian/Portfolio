@@ -9,7 +9,7 @@ export const WorkExperience = () => {
       description: "Building custom software solutions and products for diverse clients across multiple industries. Delivering end-to-end development services including web applications, backend systems, and software architecture.",
     },
     {
-      title: "TA - Lab Monitor",
+      title: "TA - Tutor",
       company: "George Brown College",
       period: "2024 - Present",
       description: "Assisting students with technical coursework and lab assignments. Providing guidance on programming concepts, debugging code, and supporting hands-on learning in computer science courses.",
