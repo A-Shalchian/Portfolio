@@ -161,7 +161,7 @@ export const GitHubContributions = () => {
         </div>
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex-1 flex flex-col min-h-0">
         {loading ? (
           <div className="flex items-center justify-center h-full">
             <p className="text-sm text-gray-600 dark:text-slate-400">Loading contributions...</p>
@@ -170,7 +170,7 @@ export const GitHubContributions = () => {
           <>
             <div
               ref={scrollContainerRef}
-              className="flex gap-[3px] overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
+              className="flex-1 flex gap-[3px] overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
             >
               {weeks.map((week, weekIndex) => (
                 <div key={weekIndex} className="flex flex-col gap-[3px]">
