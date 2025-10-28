@@ -41,11 +41,11 @@ export const Profile = () => {
         <Image
           src="/assets/pfpic.jpg"
           alt="Profile Picture"
-          width={160}
-          height={160}
+          width={200}
+          height={200}
           quality={100}
           priority
-          className="relative rounded-full mb-4 w-36 h-36 lg:w-28 lg:h-28 object-cover ring-4 ring-gray-200 dark:ring-slate-600 group-hover:ring-gray-300 dark:group-hover:ring-slate-500 transition-all duration-500"
+          className="relative rounded-full mb-4 w-36 h-36 lg:w-32 lg:h-32 object-cover ring-4 ring-gray-200 dark:ring-slate-600 group-hover:ring-gray-300 dark:group-hover:ring-slate-500 transition-all duration-500"
         />
       </div>
       <h1 className="text-2xl lg:text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 dark:from-slate-100 dark:via-blue-100 dark:to-slate-100 bg-clip-text text-transparent">
