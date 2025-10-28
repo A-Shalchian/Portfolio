@@ -31,7 +31,7 @@ const projects = [
     fullDescription: "A secure vault application for storing and managing API keys and sensitive credentials with encryption, role-based access control, and audit logging.",
     techStack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
     githubUrl: "https://github.com/A-Shalchian/api-key-vault",
-    thumbnailUrl: "/assets/projects/api-kv/API-KV-Thumbnail-dark.png",
+    thumbnailUrl: "/assets/projects/api-kv/API-Key-Vault-dark.png",
     images: ["/assets/projects/api-kv/API-Key-Vault-dark.png", "/assets/projects/api-kv/API-Key-Vault.png"],
   },
   {
