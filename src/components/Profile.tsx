@@ -1,5 +1,4 @@
 import Image from "next/image";
-import pfpic from "@/assets/images/pfpic.jpg";
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from "react-icons/fa";
 import { Download } from "lucide-react";
 
@@ -40,7 +39,7 @@ export const Profile = () => {
       <div className="relative mt-6">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
         <Image
-          src={pfpic}
+          src="/assets/pfpic.jpg"
           alt="Profile Picture"
           width={160}
           height={160}
