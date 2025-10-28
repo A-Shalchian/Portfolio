@@ -15,6 +15,7 @@ import {
   SiTailwindcss,
   SiPython,
   SiDjango,
+  SiElectron,
 } from "react-icons/si";
 
 // Map of tech names to their icons
@@ -30,6 +31,7 @@ const techIcons: Record<string, React.ReactElement> = {
   Tailwind: <SiTailwindcss className="w-4 h-4" />,
   Python: <SiPython className="w-4 h-4" />,
   Django: <SiDjango className="w-4 h-4" />,
+  Electron: <SiElectron className="w-4 h-4" />,
 };
 
 interface ProjectCardProps {
