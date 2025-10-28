@@ -16,7 +16,7 @@ export const Profile = () => {
           <FaGithub className="w-6 h-6 lg:w-5 lg:h-5" />
         </a>
         <a
-          href="https://www.linkedin.com/in/arash-shalchian/"
+          href="https://www.linkedin.com/in/a-shalchian/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-slate-100 hover:scale-110 transition-all duration-300"

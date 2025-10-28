@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -18,7 +18,7 @@ export const Footer = () => {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="https://linkedin.com/in/arash-shalchian"
+            href="https://www.linkedin.com/in/a-shalchian/"
             target="_blank"
             rel="noopener noreferrer"
             className="mac-bounce-hover group p-2 bg-gray-100 dark:bg-slate-800/80 rounded-xl text-gray-700 dark:text-slate-300 hover:bg-blue-600 dark:hover:bg-blue-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-300/50 dark:hover:shadow-blue-900/50"
@@ -26,13 +26,13 @@ export const Footer = () => {
           >
             <Linkedin className="w-4 h-4" />
           </a>
-          <a
+          {/* <a
             href="mailto:your.email@example.com"
             className="mac-bounce-hover group p-2 bg-gray-100 dark:bg-slate-800/80 rounded-xl text-gray-700 dark:text-slate-300 hover:bg-purple-600 dark:hover:bg-purple-600 hover:text-white transition-all duration-300 hover:shadow-lg hover:shadow-purple-300/50 dark:hover:shadow-purple-900/50"
             aria-label="Email"
           >
             <Mail className="w-4 h-4" />
-          </a>
+          </a> */}
         </div>
 
         {/* Divider */}
