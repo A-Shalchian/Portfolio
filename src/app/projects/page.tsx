@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ArrowRight } from "lucide-react";
 import { CurrentlyWorkingOn } from "@/components/CurrentlyWorkingOn";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectVideoModal } from "@/components/ProjectVideoModal";
@@ -95,6 +97,7 @@ const projects = [
 ];
 
 export default function ProjectsPage() {
+  const router = useRouter();
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -116,6 +119,17 @@ export default function ProjectsPage() {
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-purple-300/20 dark:bg-purple-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-300/10 dark:bg-pink-600/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      </div>
+
+      {/* Navigate to Other Projects - Top Right (Hidden on mobile) */}
+      <div className="hidden md:block fixed top-6 md:right-8 lg:right-11 z-50">
+        <div
+          onClick={() => router.push("/projects/other")}
+          className="group flex items-center gap-2 cursor-pointer text-gray-700 dark:text-slate-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-300"
+        >
+          <span className="text-sm font-medium">Other Projects</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </div>
       </div>
 
       {/* Grid Container - Responsive layout */}
@@ -156,6 +170,19 @@ export default function ProjectsPage() {
             </div>
           );
         })}
+
+        {/* Other Projects Button - Mobile Only */}
+        <div className="md:hidden w-full h-[150px]">
+          <button
+            onClick={() => router.push("/projects/other")}
+            className="group w-full h-full bg-white dark:bg-slate-800/95 rounded-2xl border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500 flex flex-col items-center justify-center gap-3"
+          >
+            <span className="text-lg font-semibold text-gray-800 dark:text-slate-100 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
+              Other Projects
+            </span>
+            <ArrowRight className="w-5 h-5 text-gray-700 dark:text-slate-300 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
+        </div>
       </div>
 
       {/* Video Modal */}
