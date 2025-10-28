@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 interface ProjectVideoModalProps {
   isOpen: boolean;
@@ -13,6 +14,7 @@ interface ProjectVideoModalProps {
     techStack: string[];
     githubUrl: string;
     videoUrl?: string;
+    images?: string[];
     liveUrl?: string;
   };
 }
@@ -24,6 +26,7 @@ export const ProjectVideoModal = ({
 }: ProjectVideoModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   // Handle ESC key press
   useEffect(() => {
@@ -51,6 +54,26 @@ export const ProjectVideoModal = ({
     }
   };
 
+  // Image navigation
+  const nextImage = () => {
+    if (project.images && currentImageIndex < project.images.length - 1) {
+      setCurrentImageIndex(currentImageIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(currentImageIndex - 1);
+    }
+  };
+
+  // Reset image index when modal opens
+  useEffect(() => {
+    if (isOpen) {
+      setCurrentImageIndex(0);
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
@@ -73,9 +96,10 @@ export const ProjectVideoModal = ({
           <X className="w-5 h-5" />
         </button>
 
-        {/* Video Player Section */}
+        {/* Video/Image Display Section */}
         <div className="relative w-full bg-black aspect-video">
           {project.videoUrl ? (
+            // Video Player
             <video
               ref={videoRef}
               className="w-full h-full"
@@ -85,10 +109,50 @@ export const ProjectVideoModal = ({
               <source src={project.videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
+          ) : project.images && project.images.length > 0 ? (
+            // Image Carousel
+            <div className="relative w-full h-full flex items-center justify-center bg-slate-900">
+              <Image
+                src={project.images[currentImageIndex]}
+                alt={`${project.title} screenshot ${currentImageIndex + 1}`}
+                fill
+                className="object-contain"
+                priority
+              />
+
+              {/* Image Navigation Buttons */}
+              {project.images.length > 1 && (
+                <>
+                  <button
+                    onClick={prevImage}
+                    disabled={currentImageIndex === 0}
+                    className="absolute left-4 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+
+                  <button
+                    onClick={nextImage}
+                    disabled={currentImageIndex === project.images.length - 1}
+                    className="absolute right-4 p-2 bg-black/50 hover:bg-black/70 text-white rounded-full transition-all duration-200 hover:scale-110 disabled:opacity-30 disabled:cursor-not-allowed"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+
+                  {/* Image Counter */}
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-black/50 backdrop-blur-sm text-white rounded-full text-sm">
+                    {currentImageIndex + 1} / {project.images.length}
+                  </div>
+                </>
+              )}
+            </div>
           ) : (
+            // No video or images
             <div className="flex items-center justify-center h-full text-white">
               <div className="text-center">
-                <p className="text-xl mb-2">Video Demo Coming Soon</p>
+                <p className="text-xl mb-2">Demo Coming Soon</p>
                 <p className="text-sm text-gray-400">
                   Check out the GitHub repository in the meantime
                 </p>

@@ -53,7 +53,7 @@ export const ProjectCard = ({
 
   return (
     <div
-      className="group relative h-full bg-white dark:bg-slate-800/95 rounded-2xl border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500 overflow-hidden cursor-pointer"
+      className="group relative h-full bg-white dark:bg-slate-800/95 rounded-2xl border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500 overflow-hidden cursor-pointer flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={onClick}
@@ -98,7 +98,7 @@ export const ProjectCard = ({
       </div>
 
       {/* Content Section */}
-      <div className="p-4 lg:p-5">
+      <div className="flex-1 flex flex-col p-4 lg:p-5">
         {/* Project Name */}
         <h3 className="text-xl font-bold text-gray-800 dark:text-slate-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
           {title}
@@ -121,6 +121,9 @@ export const ProjectCard = ({
             </div>
           ))}
         </div>
+
+        {/* Spacer to push footer to bottom */}
+        <div className="flex-1"></div>
 
         {/* GitHub Link */}
         <div className="flex items-center justify-between">

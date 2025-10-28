@@ -17,10 +17,12 @@ const projects = [
   {
     id: "clipboard-manager",
     title: "Clipboard Manager",
-    description: "Efficient clipboard management tool for developers",
-    fullDescription: "A powerful clipboard manager designed for developers to easily manage and organize code snippets, text, and other clipboard content with keyboard shortcuts and search functionality.",
-    techStack: ["JavaScript", "Node.js", "Express"],
+    description: "Efficient clipboard management tool for developers built with Electron",
+    fullDescription: "A powerful desktop clipboard manager built with Electron.js, designed for developers to easily manage and organize code snippets, text, and other clipboard content with keyboard shortcuts and search functionality.",
+    techStack: ["JavaScript", "Electron"],
     githubUrl: "https://github.com/A-Shalchian/clipboard-manager",
+    thumbnailUrl: "/assets/projects/clipboard-manager/Clipboard-Manager-dark.png",
+    images: ["/assets/projects/clipboard-manager/Clipboard-Manager.png", "/assets/projects/clipboard-manager/Clipboard-Manager-dark.png"],
   },
   {
     id: "api-key-vault",
@@ -144,6 +146,7 @@ export default function ProjectsPage() {
                 description={project.description}
                 techStack={project.techStack}
                 githubUrl={project.githubUrl}
+                thumbnailUrl={project.thumbnailUrl}
                 onClick={() => handleProjectClick(project)}
               />
             </div>
