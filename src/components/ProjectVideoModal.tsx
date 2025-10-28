@@ -3,6 +3,36 @@ import { useEffect, useRef, useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiTailwindcss,
+  SiPython,
+  SiDjango,
+  SiElectron,
+} from "react-icons/si";
+
+// Map of tech names to their icons
+const techIcons: Record<string, React.ReactElement> = {
+  JavaScript: <SiJavascript className="w-3 h-3" />,
+  TypeScript: <SiTypescript className="w-3 h-3" />,
+  React: <SiReact className="w-3 h-3" />,
+  "Next.js": <SiNextdotjs className="w-3 h-3" />,
+  "Node.js": <SiNodedotjs className="w-3 h-3" />,
+  Express: <SiExpress className="w-3 h-3" />,
+  MongoDB: <SiMongodb className="w-3 h-3" />,
+  PostgreSQL: <SiPostgresql className="w-3 h-3" />,
+  Tailwind: <SiTailwindcss className="w-3 h-3" />,
+  Python: <SiPython className="w-3 h-3" />,
+  Django: <SiDjango className="w-3 h-3" />,
+  Electron: <SiElectron className="w-3 h-3" />,
+};
 
 interface ProjectVideoModalProps {
   isOpen: boolean;
@@ -83,9 +113,9 @@ export const ProjectVideoModal = ({
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-5xl bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8
+        className="relative w-full max-w-6xl bg-white dark:bg-slate-800 rounded-2xl shadow-2xl overflow-hidden my-8
           max-h-[90vh] md:max-h-[85vh]
-          flex flex-col"
+          flex flex-col md:flex-row"
       >
         {/* Close Button */}
         <button
@@ -97,7 +127,7 @@ export const ProjectVideoModal = ({
         </button>
 
         {/* Video/Image Display Section */}
-        <div className="relative w-full bg-black aspect-video">
+        <div className="relative w-full md:w-2/3 bg-black aspect-video md:aspect-auto md:min-h-full">
           {project.videoUrl ? (
             // Video Player
             <video
@@ -162,44 +192,45 @@ export const ProjectVideoModal = ({
         </div>
 
         {/* Project Information Section */}
-        <div className="flex-1 overflow-y-auto p-6 lg:p-8">
+        <div className="w-full md:w-1/3 overflow-y-auto p-6 lg:p-8 flex flex-col">
           {/* Project Title */}
-          <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-slate-100 mb-3">
+          <h2 className="text-xl lg:text-2xl font-bold text-gray-800 dark:text-slate-100 mb-3">
             {project.title}
           </h2>
 
           {/* Description */}
-          <p className="text-base text-gray-600 dark:text-slate-300 mb-6 leading-relaxed">
+          <p className="text-sm text-gray-600 dark:text-slate-300 mb-6 leading-relaxed">
             {project.fullDescription || project.description}
           </p>
 
           {/* Tech Stack */}
           <div className="mb-6">
-            <h3 className="text-sm font-semibold text-gray-700 dark:text-slate-200 mb-3 uppercase tracking-wide">
+            <h3 className="text-xs font-semibold text-gray-700 dark:text-slate-200 mb-3 uppercase tracking-wide">
               Tech Stack
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.techStack.map((tech, index) => (
-                <span
+                <div
                   key={index}
-                  className="px-3 py-1.5 bg-gray-100 dark:bg-slate-700/70 text-gray-700 dark:text-slate-300 rounded-lg text-sm font-medium border border-gray-200 dark:border-slate-600/50"
+                  className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 dark:bg-slate-700/70 text-gray-700 dark:text-slate-300 rounded-lg text-xs font-medium border border-gray-200 dark:border-slate-600/50"
                 >
-                  {tech}
-                </span>
+                  {techIcons[tech]}
+                  <span>{tech}</span>
+                </div>
               ))}
             </div>
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-col gap-3 mt-auto">
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 bg-gray-800 dark:bg-slate-700 hover:bg-gray-900 dark:hover:bg-slate-600 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
+              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 dark:bg-slate-700 hover:bg-gray-900 dark:hover:bg-slate-600 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
             >
-              <FaGithub className="w-5 h-5" />
-              <span className="font-semibold">View on GitHub</span>
+              <FaGithub className="w-4 h-4" />
+              <span className="font-semibold text-sm">View on GitHub</span>
             </a>
 
             {project.liveUrl && (
@@ -207,9 +238,9 @@ export const ProjectVideoModal = ({
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
               >
-                <span className="font-semibold">Live Demo</span>
+                <span className="font-semibold text-sm">Live Demo</span>
                 <svg
                   className="w-4 h-4"
                   fill="none"

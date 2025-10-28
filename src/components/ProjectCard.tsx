@@ -113,7 +113,7 @@ export const ProjectCard = ({
 
         {/* Tech Stack Badges */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {techStack.map((tech, index) => (
+          {techStack.slice(0, 3).map((tech, index) => (
             <div
               key={index}
               className="flex items-center gap-1.5 px-2.5 py-1 bg-gray-100 dark:bg-slate-700/70 rounded-md text-xs font-medium text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-600/50 hover:border-blue-500 dark:hover:border-blue-400 transition-colors duration-200"
@@ -122,6 +122,11 @@ export const ProjectCard = ({
               <span>{tech}</span>
             </div>
           ))}
+          {techStack.length > 3 && (
+            <div className="flex items-center px-2.5 py-1 bg-gray-100 dark:bg-slate-700/70 rounded-md text-xs font-medium text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-600/50">
+              +{techStack.length - 3} more
+            </div>
+          )}
         </div>
 
         {/* Spacer to push footer to bottom */}
