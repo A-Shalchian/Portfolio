@@ -1,0 +1,32 @@
+Copyright (c) 2025 Arash Shalchian
+
+All Rights Reserved
+
+IMPORTANT NOTE:
+This portfolio uses open-source libraries and frameworks (React, Next.js,
+Tailwind CSS, etc.) that are licensed under their respective licenses (MIT,
+Apache, etc.). Those libraries remain under their original licenses. This
+copyright applies only to the original code, design, components, and content
+created specifically for this portfolio by Arash Shalchian.
+
+This code and associated documentation files (the "Software") are the exclusive
+property of Arash Shalchian. No part of this Software may be reproduced,
+distributed, or transmitted in any form or by any means, including photocopying,
+recording, or other electronic or mechanical methods, without the prior written
+permission of the copyright holder.
+
+The Software is provided for viewing and educational purposes only. You may not:
+- Use this code for your own portfolio or commercial purposes
+- Copy, modify, merge, publish, or distribute copies of the Software
+- Sublicense or sell copies of the Software
+
+For permission requests, please contact the copyright holder at:
+GitHub: https://github.com/A-Shalchian
+LinkedIn: https://www.linkedin.com/in/a-shalchian/
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
