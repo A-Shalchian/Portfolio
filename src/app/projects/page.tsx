@@ -77,10 +77,12 @@ const projects = [
   {
     id: "postwave",
     title: "PostWave",
-    description: "Social media management and analytics tool",
-    fullDescription: "A comprehensive social media management platform for scheduling posts, analyzing engagement, and managing multiple accounts across different platforms.",
-    techStack: ["React", "Node.js", "MongoDB"],
+    description: "Upload Once. Post Everywhere.",
+    fullDescription: "PostWave is a modern multi-platform content distribution tool that allows creators to upload videos once and share them across TikTok, YouTube, Instagram, and more with a single click. Built with a minimal, dark aesthetic and smooth animations inspired by Linear and Stripe.",
+    techStack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind"],
     githubUrl: "https://github.com/A-Shalchian/PostWave",
+    thumbnailUrl: "/assets/projects/postwave/PostWave.png",
+    images: ["/assets/projects/postwave/PostWave.png"],
   },
   {
     id: "stumarket",
