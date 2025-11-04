@@ -45,12 +45,14 @@ const projects = [
   //   githubUrl: "https://github.com/A-Shalchian/BookChe",
   // },
   {
-    id: "bolt-tic-tac-toe",
-    title: "Bolt Tic-Tac-Toe",
+    id: "phantom-grid",
+    title: "Phantom Grid",
     description: "Modern take on the classic tic-tac-toe game",
     fullDescription: "An interactive tic-tac-toe game with smooth animations, multiplayer support, and AI opponent with different difficulty levels.",
     techStack: ["JavaScript", "React"],
     githubUrl: "https://github.com/A-Shalchian/bolt-tic-tac-toe",
+    thumbnailUrl: "/assets/projects/phantom-grid/Phantom-Grid-dark.png",
+    images: ["/assets/projects/phantom-grid/Phantom-Grid-dark.png", "/assets/projects/phantom-grid/Phantom-Grid.png", "/assets/projects/phantom-grid/vs_Computer.png", "/assets/projects/phantom-grid/vs_Player.png", "/assets/projects/phantom-grid/online1.png", "/assets/projects/phantom-grid/online2.png"],
   },
   {
     id: "streakcode",
