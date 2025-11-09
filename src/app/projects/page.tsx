@@ -113,7 +113,7 @@ export default function ProjectsPage() {
   const showBottomOtherProjectsLg = remainingProjectsInLastRow !== 0;
 
   return (
-    <main className="relative w-full min-h-screen lg:h-screen lg:overflow-y-auto">
+    <main className="relative w-full min-h-screen lg:h-screen lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-slate-500">
       {/* Animated background glow effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
@@ -175,7 +175,7 @@ export default function ProjectsPage() {
         <div className={`w-full h-[150px] md:h-[400px] ${showBottomOtherProjectsLg ? 'md:hidden lg:block' : 'md:hidden'}`}>
           <button
             onClick={() => router.push("/projects/other")}
-            className="group relative w-full h-full bg-white dark:bg-slate-800/95 rounded-2xl border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-2xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500 overflow-hidden flex flex-col items-center justify-center gap-3"
+            className="group relative w-full h-full bg-white dark:bg-slate-800/95 rounded-2xl border border-gray-200 dark:border-slate-600/50 shadow-lg hover:shadow-2xl dark:shadow-slate-900/50 transition-all duration-500 hover:border-gray-300 dark:hover:border-slate-500 overflow-hidden flex flex-col items-center justify-center gap-3 cursor-pointer"
           >
             {/* Animated gradient background on hover */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-900/10 dark:via-purple-900/5 dark:to-pink-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

@@ -70,22 +70,43 @@
 
   /* Custom scrollbar - Light mode */
   .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
   }
 
   .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
     background-color: rgb(209 213 219);
     border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(156 163 175);
   }
 
   /* Custom scrollbar - Dark mode */
-  .dark .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
-    background-color: rgb(75 85 99);
+  .dark .scrollbar-thumb-slate-600::-webkit-scrollbar-thumb {
+    background-color: rgb(71 85 105);
     border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .dark .scrollbar-thumb-slate-600::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(100 116 139);
   }
 
   .scrollbar-track-transparent::-webkit-scrollbar-track {
     background-color: transparent;
+  }
+
+  /* Hover effect for scrollbar thumb */
+  .hover\:scrollbar-thumb-gray-400:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(156 163 175);
+  }
+
+  .dark .dark\:hover\:scrollbar-thumb-slate-500:hover::-webkit-scrollbar-thumb {
+    background-color: rgb(100 116 139);
   }
 }
