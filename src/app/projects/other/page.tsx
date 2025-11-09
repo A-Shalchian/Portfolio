@@ -6,16 +6,13 @@ import { ProjectVideoModal } from "@/components/ProjectVideoModal";
 // Smaller/miscellaneous projects data
 const otherProjects = [
   {
-    id: "bolt-tic-tac-toe",
-    title: "Bolt Tic-Tac-Toe",
-    description: "Modern take on the classic tic-tac-toe game",
-    fullDescription: "An interactive tic-tac-toe game with smooth animations, multiplayer support, and AI opponent with different difficulty levels.",
-    techStack: ["JavaScript", "React"],
-    githubUrl: "https://github.com/A-Shalchian/bolt-tic-tac-toe",
-    thumbnailUrl: undefined,
-    images: undefined,
+    id: "chrome-extensions",
+    title: "Chrome Extensions",
+    description: "Chrome extensions that I've built",
+    fullDescription: "A collection of Chrome extensions that I've developed to enhance browsing experience and productivity.",
+    techStack: ["JavaScript", "Chrome API"],
+    githubUrl: "https://github.com/A-Shalchian/chrome-extensions",
   },
-  // Add more smaller projects here
 ];
 
 export default function OtherProjectsPage() {
@@ -34,7 +31,7 @@ export default function OtherProjectsPage() {
   };
 
   return (
-    <main className="relative w-full min-h-screen lg:h-screen lg:overflow-y-auto">
+    <main className="relative w-full min-h-screen lg:h-screen lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-slate-500">
       {/* Animated background glow effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>

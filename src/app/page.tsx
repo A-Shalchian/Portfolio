@@ -19,34 +19,20 @@ export default function Home() {
 
       {/* Download Resume Button - Tablet view (top right) */}
       <div className="hidden md:block lg:hidden fixed top-4 right-4 z-50">
-        <a
-          href="/resume.pdf"
-          download
-          className="group relative flex items-center gap-1.5 px-3 py-2.5 bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 hover:text-gray-900 dark:hover:text-white rounded-lg border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden hover:scale-105"
-        >
-          {/* Animated shine effect */}
-          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-gray-200/30 dark:via-slate-600/30 to-transparent"></div>
-
+        <div className="group relative flex items-center gap-1.5 px-3 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400 rounded-lg border border-gray-300 dark:border-slate-600 shadow-md cursor-not-allowed opacity-75">
           {/* Content */}
-          <Download className="w-3.5 h-3.5 relative z-10 group-hover:animate-bounce" />
-          <span className="relative z-10 font-semibold text-xs">Download Resume</span>
-        </a>
+          <Download className="w-3.5 h-3.5 relative z-10" />
+          <span className="relative z-10 font-semibold text-xs">Resume Not Available</span>
+        </div>
       </div>
 
       {/* Download Resume Button - Large screens only (top right) */}
       <div className="hidden lg:block fixed top-4 right-6 z-50">
-        <a
-          href="/resume.pdf"
-          download
-          className="group relative flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 hover:text-gray-900 dark:hover:text-white rounded-lg border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden hover:scale-105"
-        >
-          {/* Animated shine effect */}
-          <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-gray-200/30 dark:via-slate-600/30 to-transparent"></div>
-
+        <div className="group relative flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-slate-700 text-gray-500 dark:text-slate-400 rounded-lg border border-gray-300 dark:border-slate-600 shadow-md cursor-not-allowed opacity-75">
           {/* Content */}
-          <Download className="w-4 h-4 relative z-10 group-hover:animate-bounce" />
-          <span className="relative z-10 font-semibold text-sm">Download Resume</span>
-        </a>
+          <Download className="w-4 h-4 relative z-10" />
+          <span className="relative z-10 font-semibold text-sm">Resume Not Available</span>
+        </div>
       </div>
 
       {/* Grid Container - Responsive layout */}
