@@ -12,6 +12,8 @@ const otherProjects = [
     fullDescription: "A collection of Chrome extensions that I've developed to enhance browsing experience and productivity.",
     techStack: ["JavaScript", "Chrome API"],
     githubUrl: "https://github.com/A-Shalchian/chrome-extensions",
+    thumbnailUrl: undefined,
+    images: undefined,
   },
 ];
 
