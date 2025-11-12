@@ -91,6 +91,8 @@ const projects = [
     fullDescription: "A peer-to-peer marketplace exclusively for students to buy, sell, and trade textbooks, electronics, furniture, and other items within their campus community.",
     techStack: ["React", "Node.js", "PostgreSQL"],
     githubUrl: "https://github.com/A-Shalchian/StuMarket",
+    thumbnailUrl: "/assets/projects/stumarket/stuMarket-dark.png",
+    images: ["/assets/projects/stumarket/stuMarket-dark.png"],
   },
 ];
 
