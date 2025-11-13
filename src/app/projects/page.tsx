@@ -5,101 +5,16 @@ import { ArrowRight } from "lucide-react";
 import { CurrentlyWorkingOn } from "@/components/CurrentlyWorkingOn";
 import { ProjectCard } from "@/components/ProjectCard";
 import { ProjectVideoModal } from "@/components/ProjectVideoModal";
-
-// Project data
-const projects = [
-  {
-    id: "fitsho",
-    title: "Fitsho",
-    description: "A comprehensive fitness tracking application to monitor workouts, nutrition, and health goals",
-    fullDescription: "Fitsho is a full-stack fitness tracking application that helps users monitor their workouts, track nutrition, and achieve their health goals. Features include workout logging, meal planning, progress tracking, and personalized recommendations.",
-    techStack: ["React", "Next.js", "TypeScript", "Tailwind"],
-    githubUrl: "https://github.com/A-Shalchian/fitsho",
-  },
-  {
-    id: "clipboard-manager",
-    title: "Clipboard Manager",
-    description: "Efficient clipboard management tool.",
-    fullDescription: "A powerful desktop clipboard manager built with Electron.js, designed for developers to easily manage and organize code snippets, text, and other clipboard content with keyboard shortcuts and search functionality.",
-    techStack: ["JavaScript", "Electron"],
-    githubUrl: "https://github.com/A-Shalchian/clipboard-manager",
-    thumbnailUrl: "/assets/projects/clipboard-manager/Clipboard-Manager-dark.png",
-    images: ["/assets/projects/clipboard-manager/Clipboard-Manager-dark.png", "/assets/projects/clipboard-manager/Clipboard-Manager.png"],
-  },
-  {
-    id: "api-key-vault",
-    title: "API Key Vault",
-    description: "Secure storage, management system for API keys",
-    fullDescription: "A secure vault application for storing and managing API keys and sensitive credentials with encryption, role-based access control, and audit logging.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL"],
-    githubUrl: "https://github.com/A-Shalchian/api-key-vault",
-    thumbnailUrl: "/assets/projects/api-kv/API-Key-Vault-dark.png",
-    images: ["/assets/projects/api-kv/API-Key-Vault-dark.png", "/assets/projects/api-kv/API-Key-Vault.png"],
-  },
-  // {
-  //   id: "bookche",
-  //   title: "BookChe",
-  //   description: "Book recommendation and tracking platform",
-  //   fullDescription: "A social platform for book lovers to discover new books, track reading progress, share reviews, and get personalized recommendations based on reading history.",
-  //   techStack: ["React", "Node.js", "PostgreSQL"],
-  //   githubUrl: "https://github.com/A-Shalchian/BookChe",
-  // },
-  {
-    id: "phantom-grid",
-    title: "Phantom Grid",
-    description: "Modern take on the classic tic-tac-toe game",
-    fullDescription: "An interactive tic-tac-toe game with smooth animations, multiplayer support, and AI opponent with different difficulty levels.",
-    techStack: ["JavaScript", "React"],
-    githubUrl: "https://github.com/A-Shalchian/bolt-tic-tac-toe",
-    thumbnailUrl: "/assets/projects/phantom-grid/Phantom-Grid-dark.png",
-    images: ["/assets/projects/phantom-grid/Phantom-Grid-dark.png", "/assets/projects/phantom-grid/Phantom-Grid.png", "/assets/projects/phantom-grid/vs_Computer.png", "/assets/projects/phantom-grid/vs_Player.png", "/assets/projects/phantom-grid/online1.png", "/assets/projects/phantom-grid/online2.png"],
-  },
-  {
-    id: "streakcode",
-    title: "StreakCode",
-    description: "Track your coding consistency and build habits",
-    fullDescription: "A productivity app for developers to track daily coding streaks, set goals, and maintain consistency in their programming journey with GitHub integration.",
-    techStack: ["TypeScript", "React", "Node.js", "Tailwind"],
-    githubUrl: "https://github.com/A-Shalchian/CodeStreak",
-    thumbnailUrl: "/assets/projects/streakcode/StreakCode-dark.png",
-    images: ["/assets/projects/streakcode/StreakCode-dark.png", "/assets/projects/streakcode/StreakCode.png"],
-  },
-  {
-    id: "diskcleaner",
-    title: "DiskCleaner",
-    description: "Automated disk space cleanup utility",
-    fullDescription: "A system utility that automatically identifies and removes unnecessary files, cache, and temporary data to free up disk space safely.",
-    techStack: ["Python", "Electron"],
-    githubUrl: "https://github.com/A-Shalchian/DiskCleaner",
-    thumbnailUrl: "/assets/projects/diskcleaner/Disk_Cleaner-dark.png",
-    images: ["/assets/projects/diskcleaner/Disk_Cleaner-dark.png", "/assets/projects/diskcleaner/Disk_Cleaner.png"],
-  },
-  {
-    id: "postwave",
-    title: "PostWave",
-    description: "Upload Once. Post Everywhere.",
-    fullDescription: "PostWave is a modern multi-platform content distribution tool that allows creators to upload videos once and share them across TikTok, YouTube, Instagram, and more with a single click. Built with a minimal, dark aesthetic and smooth animations inspired by Linear and Stripe.",
-    techStack: ["Next.js", "TypeScript", "PostgreSQL"],
-    githubUrl: "https://github.com/A-Shalchian/PostWave",
-    thumbnailUrl: "/assets/projects/postwave/PostWave.png",
-    images: ["/assets/projects/postwave/PostWave.png"],
-  },
-  {
-    id: "stumarket",
-    title: "StuMarket",
-    description: "Student marketplace for buying and selling",
-    fullDescription: "A peer-to-peer marketplace exclusively for students to buy, sell, and trade textbooks, electronics, furniture, and other items within their campus community.",
-    techStack: ["React", "Node.js", "PostgreSQL"],
-    githubUrl: "https://github.com/A-Shalchian/StuMarket",
-    thumbnailUrl: "/assets/projects/stumarket/stuMarket-dark.png",
-    images: ["/assets/projects/stumarket/stuMarket-dark.png"],
-  },
-];
+import { projects } from "@/data/projects";
+import { currentWork } from "@/data/currentWork";
 
 export default function ProjectsPage() {
   const router = useRouter();
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Find the current project by ID from currentWork
+  const currentProject = projects.find(p => p.id === currentWork.projectId) || projects[0];
 
   const handleProjectClick = (project: typeof projects[0]) => {
     setSelectedProject(project);
@@ -115,7 +30,7 @@ export default function ProjectsPage() {
   const showBottomOtherProjectsLg = remainingProjectsInLastRow !== 0;
 
   return (
-    <main className="relative w-full min-h-screen lg:h-screen lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-slate-500">
+    <main className="relative w-full min-h-screen lg:h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-slate-500">
       {/* Animated background glow effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10 bg-gradient-to-br from-gray-50 via-slate-50 to-gray-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
         <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse"></div>
@@ -138,12 +53,16 @@ export default function ProjectsPage() {
       <div className="relative z-10 p-4 pt-20 pb-4
         flex flex-col gap-4
         md:grid md:grid-cols-2 md:auto-rows-min md:gap-4
-        lg:grid-cols-3 lg:auto-rows-min lg:gap-3 lg:pt-16 lg:pb-8 lg:px-8">
+        lg:grid-cols-3 lg:auto-rows-min lg:gap-3 lg:pt-20 lg:pb-8 lg:px-8">
 
         {/* Currently Working On - Only on desktop, takes 1 column */}
         <div className="hidden lg:block lg:col-span-1 lg:row-start-1 lg:h-[400px]">
           <div className="h-full">
-            <CurrentlyWorkingOn />
+            <CurrentlyWorkingOn
+              project={currentProject}
+              tasks={currentWork.tasks}
+              status={currentWork.status}
+            />
           </div>
         </div>
 
