@@ -39,13 +39,13 @@ export const Profile = () => {
       <div className="relative mt-6">
         <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 dark:from-blue-500 dark:to-purple-500 blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
         <Image
-          src="/assets/pfpic.jpg"
+          src="/assets/profile_pic.jpg"
           alt="Profile Picture"
           width={200}
           height={200}
           quality={100}
           priority
-          className="relative rounded-full mb-4 w-36 h-36 lg:w-32 lg:h-32 object-cover ring-4 ring-gray-200 dark:ring-slate-600 group-hover:ring-gray-300 dark:group-hover:ring-slate-500 transition-all duration-500"
+          className="relative rounded-full mb-4 w-44 h-44 lg:w-42 lg:h-42 object-cover object-top scale-110 ring-4 ring-gray-200 dark:ring-slate-600 group-hover:ring-gray-300 dark:group-hover:ring-slate-500 transition-all duration-500"
         />
       </div>
       <h1 className="text-2xl lg:text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 dark:from-slate-100 dark:via-blue-100 dark:to-slate-100 bg-clip-text text-transparent">
@@ -58,7 +58,7 @@ export const Profile = () => {
         <a
           href="/resume.pdf"
           download
-          className="group relative flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 hover:text-gray-900 dark:hover:text-white rounded-lg border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden hover:scale-105"
+          className="group relative flex items-center gap-2 px-4 py-2 mb-4 bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-100 hover:text-gray-900 dark:hover:text-white rounded-lg border border-gray-200 dark:border-slate-600 hover:border-gray-300 dark:hover:border-slate-500 shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden hover:scale-105"
         >
           {/* Animated shine effect */}
           <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-gray-200/30 dark:via-slate-600/30 to-transparent"></div>
