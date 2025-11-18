@@ -22,9 +22,9 @@ export async function getContributions() {
   }
 }
 
-export async function getLatestCommit() {
+export async function getLatestCommits() {
   try {
-    console.log("Fetching latest commit from API...");
+    console.log("Fetching latest commits from API...");
     const response = await fetch('/api/github/latest-commit');
 
     if (!response.ok) {
@@ -37,17 +37,24 @@ export async function getLatestCommit() {
       throw new Error(data.error);
     }
 
-    return data;
+    return data; // Returns array of commits
   } catch (error) {
-    console.error("Error fetching latest commit:", error.message);
+    console.error("Error fetching latest commits:", error.message);
     throw error;
   }
+}
+
+// Keep the old function for backwards compatibility
+export async function getLatestCommit() {
+  const commits = await getLatestCommits();
+  return commits[0] || null;
 }
 
 // Create a named object for the default export
 const GitHubContributions = {
   getContributions,
-  getLatestCommit
+  getLatestCommit,
+  getLatestCommits
 };
 
 export default GitHubContributions;

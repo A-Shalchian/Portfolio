@@ -66,34 +66,33 @@ export async function GET() {
 
     const repos = response.data.data.viewer.repositories.nodes as Repository[];
 
-    // Find the most recent commit across all repos
-    let latestCommit: Commit | undefined;
-    let latestDate: Date | undefined;
-    let latestRepo: Repository | undefined;
+    // Find the 2 most recent commits across all repos
+    const commits: Array<{ commit: Commit; repo: Repository; date: Date }> = [];
 
     repos.forEach((repo) => {
       if (repo.defaultBranchRef?.target) {
         const commit = repo.defaultBranchRef.target;
         const commitDate = new Date(commit.committedDate);
-
-        if (!latestDate || commitDate > latestDate) {
-          latestDate = commitDate;
-          latestCommit = commit;
-          latestRepo = repo;
-        }
+        commits.push({ commit, repo, date: commitDate });
       }
     });
 
-    if (!latestCommit || !latestRepo || !latestDate) {
-      return NextResponse.json(null);
+    // Sort by date and get top 2
+    commits.sort((a, b) => b.date.getTime() - a.date.getTime());
+    const topCommits = commits.slice(0, 2);
+
+    if (topCommits.length === 0) {
+      return NextResponse.json([]);
     }
 
-    return NextResponse.json({
-      message: latestCommit.message.split('\n')[0], // Get first line only
-      repo: latestRepo.name,
-      date: latestDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-      url: latestRepo.url
-    });
+    return NextResponse.json(
+      topCommits.map(({ commit, repo, date }) => ({
+        message: commit.message.split('\n')[0], // Get first line only
+        repo: repo.name,
+        date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        url: repo.url
+      }))
+    );
   } catch (error) {
     console.error("Error fetching latest commit:", error);
     return NextResponse.json(

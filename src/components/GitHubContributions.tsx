@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
 import { Github, GitCommit } from "lucide-react";
-import { getContributions, getLatestCommit } from "./github_contributions";
+import { getContributions, getLatestCommits } from "./github_contributions";
 import { useTheme } from "@/contexts/ThemeContext";
 
 interface ContributionDay {
@@ -26,17 +26,17 @@ export const GitHubContributions = () => {
   const [weeks, setWeeks] = useState<ContributionWeek[]>([]);
   const [loading, setLoading] = useState(true);
   const [totalContributions, setTotalContributions] = useState(0);
-  const [latestCommit, setLatestCommit] = useState<LatestCommit | null>(null);
+  const [latestCommits, setLatestCommits] = useState<LatestCommit[]>([]);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [hasSpaceForCommit, setHasSpaceForCommit] = useState(false);
+  const [commitsToShow, setCommitsToShow] = useState(0);
 
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [contributionsData, commitData] = await Promise.all([
+      const [contributionsData, commitsData] = await Promise.all([
         getContributions(),
-        getLatestCommit()
+        getLatestCommits()
       ]);
 
       setWeeks(contributionsData);
@@ -50,9 +50,9 @@ export const GitHubContributions = () => {
       });
       setTotalContributions(total);
 
-      // Set latest commit from real API data
-      if (commitData) {
-        setLatestCommit(commitData);
+      // Set latest commits from real API data
+      if (commitsData && Array.isArray(commitsData)) {
+        setLatestCommits(commitsData);
       }
     } catch (error) {
       console.error("Failed to fetch GitHub data:", error);
@@ -65,13 +65,31 @@ export const GitHubContributions = () => {
     fetchData();
   }, []);
 
-  // Check if there's enough space for the latest commit section
+  // Check how many commits to show based on available space (desktop only)
   useEffect(() => {
     const checkSpace = () => {
       if (containerRef.current) {
         const containerHeight = containerRef.current.clientHeight;
-        // If container height is greater than 280px, we have space for commit
-        setHasSpaceForCommit(containerHeight > 280);
+        const screenWidth = window.innerWidth;
+
+        // Only apply dynamic commit logic on desktop (lg+ breakpoint = 1024px)
+        if (screenWidth >= 1024) {
+          // Desktop: dynamic based on height
+          // More conservative thresholds to prevent smooshed squares
+          if (containerHeight < 340) {
+            // Small height: no commits (keep squares normal size)
+            setCommitsToShow(0);
+          } else if (containerHeight < 460) {
+            // Medium height: 1 commit
+            setCommitsToShow(1);
+          } else {
+            // Large height: 2 commits
+            setCommitsToShow(2);
+          }
+        } else {
+          // Mobile/tablet: show 1 commit if there's any reasonable space
+          setCommitsToShow(containerHeight > 280 ? 1 : 0);
+        }
       }
     };
 
@@ -170,7 +188,7 @@ export const GitHubContributions = () => {
           <>
             <div
               ref={scrollContainerRef}
-              className="flex-1 flex gap-[3px] overflow-x-auto pb-3 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
+              className="flex gap-[3px] overflow-x-auto pb-[4px] scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-slate-600 scrollbar-track-transparent"
             >
               {weeks.map((week, weekIndex) => (
                 <div key={weekIndex} className="flex flex-col gap-[3px]">
@@ -192,7 +210,7 @@ export const GitHubContributions = () => {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center gap-2 mt-3 text-xs text-gray-600 dark:text-slate-400">
+            <div className="flex items-center gap-2 mt-2 text-xs text-gray-600 dark:text-slate-400">
               <span>Less</span>
               <div className="flex gap-1">
                 <div
@@ -219,30 +237,38 @@ export const GitHubContributions = () => {
               <span>More</span>
             </div>
 
-            {/* Latest Commit - Only show if there's enough space */}
-            {hasSpaceForCommit && latestCommit && (
-              <div className="mt-4 pt-3 border-t border-gray-200 dark:border-slate-600/50 overflow-hidden">
-                <div className="flex items-start gap-2 min-w-0">
+            {/* Latest Commits - Show 0, 1, or 2 based on available space */}
+            {commitsToShow > 0 && latestCommits.length > 0 && (
+              <div className="mt-3 pt-2 border-t border-gray-200 dark:border-slate-600/50 overflow-hidden">
+                <div className="flex items-start gap-2 min-w-0 mb-1">
                   <GitCommit className="w-4 h-4 text-gray-600 dark:text-slate-400 mt-0.5 flex-shrink-0" />
-                  <div className="flex-1 min-w-0 overflow-hidden">
-                    <p className="text-[10px] text-gray-500 dark:text-slate-500 mb-1">Latest Commit</p>
+                  <p className="text-[10px] text-gray-500 dark:text-slate-500">
+                    Latest Commit{commitsToShow > 1 ? 's' : ''}
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  {latestCommits.slice(0, commitsToShow).map((commit, index) => (
                     <a
-                      href={latestCommit.url}
+                      key={index}
+                      href={commit.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block group/commit min-w-0"
+                      className="block group/commit min-w-0 pl-6"
                     >
                       <p className="text-xs text-gray-700 dark:text-slate-300 group-hover/commit:text-blue-600 dark:group-hover/commit:text-blue-400 transition-colors truncate">
-                        {latestCommit.message}
+                        {commit.message}
                       </p>
                       <p className="text-[10px] text-gray-500 dark:text-slate-500 mt-0.5 truncate">
-                        {latestCommit.repo} • {latestCommit.date}
+                        {commit.repo} • {commit.date}
                       </p>
                     </a>
-                  </div>
+                  ))}
                 </div>
               </div>
             )}
+
+            {/* Spacer to push remaining space to bottom */}
+            <div className="flex-1"></div>
           </>
         )}
       </div>

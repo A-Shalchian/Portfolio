@@ -5,7 +5,7 @@ export const Footer = () => {
 
   return (
     <footer className="relative w-full py-4 px-4 lg:py-3">
-      <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 lg:gap-6 flex-wrap">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 lg:gap-6">
         {/* Social Links */}
         <div className="flex items-center gap-2">
           <a
@@ -35,10 +35,10 @@ export const Footer = () => {
           </a>
         </div>
 
-        {/* Divider */}
-        <div className="w-px h-4 bg-gradient-to-b from-transparent via-gray-300 dark:via-slate-600 to-transparent"></div>
+        {/* Divider - hidden on mobile */}
+        <div className="hidden sm:block w-px h-4 bg-gradient-to-b from-transparent via-gray-300 dark:via-slate-600 to-transparent"></div>
 
-        <p className="text-xs text-gray-600 dark:text-slate-400">
+        <p className="text-xs text-center sm:text-left text-gray-600 dark:text-slate-400">
           © {currentYear} <span className="font-semibold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-slate-200 dark:to-slate-400 bg-clip-text text-transparent">Arash Shalchian</span>. All rights reserved.
         </p>
       </div>
