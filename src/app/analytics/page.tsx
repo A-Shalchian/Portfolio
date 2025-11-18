@@ -72,6 +72,14 @@ export default function AnalyticsPage() {
     }
   };
 
+  useEffect(() => {
+    if (!isAuthenticated) return;
+    fetchStats();
+
+    const interval = setInterval(fetchStats, 5 * 60 * 1000); // Refresh every 5 minutes
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
+
   const handleLogout = async () => {
     await fetch('/api/analytics/auth', { method: 'DELETE' });
     setIsAuthenticated(false);
