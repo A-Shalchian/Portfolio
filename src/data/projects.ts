@@ -38,16 +38,6 @@ export const projects = [
     images: ["/assets/projects/phantom-grid/Phantom-Grid-dark.png", "/assets/projects/phantom-grid/Phantom-Grid.png", "/assets/projects/phantom-grid/vs_Computer.png", "/assets/projects/phantom-grid/vs_Player.png", "/assets/projects/phantom-grid/online1.png", "/assets/projects/phantom-grid/online2.png"],
   },
   {
-    id: "streakcode",
-    title: "StreakCode",
-    description: "Track your coding consistency and build habits",
-    fullDescription: "A productivity app for developers to track daily coding streaks, set goals, and maintain consistency in their programming journey with GitHub integration.",
-    techStack: ["TypeScript", "React", "Node.js", "Tailwind"],
-    githubUrl: "https://github.com/A-Shalchian/CodeStreak",
-    thumbnailUrl: "/assets/projects/streakcode/StreakCode-dark.png",
-    images: ["/assets/projects/streakcode/StreakCode-dark.png", "/assets/projects/streakcode/StreakCode.png"],
-  },
-  {
     id: "diskcleaner",
     title: "DiskCleaner",
     description: "Automated disk space cleanup utility",

@@ -42,7 +42,7 @@ interface ProjectVideoModalProps {
     description: string;
     fullDescription?: string;
     techStack: string[];
-    githubUrl: string;
+    githubUrl?: string;
     videoUrl?: string;
     images?: string[];
     liveUrl?: string;
@@ -223,15 +223,22 @@ export const ProjectVideoModal = ({
 
           {/* Links */}
           <div className="flex flex-col gap-3 mt-auto">
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 dark:bg-slate-700 hover:bg-gray-900 dark:hover:bg-slate-600 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
-            >
-              <FaGithub className="w-4 h-4" />
-              <span className="font-semibold text-sm">View on GitHub</span>
-            </a>
+            {project.githubUrl ? (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-800 dark:bg-slate-700 hover:bg-gray-900 dark:hover:bg-slate-600 text-white rounded-lg transition-all duration-200 hover:scale-105 shadow-md"
+              >
+                <FaGithub className="w-4 h-4" />
+                <span className="font-semibold text-sm">View on GitHub</span>
+              </a>
+            ) : (
+              <div className="flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-400 dark:bg-slate-600 text-white rounded-lg">
+                <FaGithub className="w-4 h-4" />
+                <span className="font-semibold text-sm">Private Repository</span>
+              </div>
+            )}
 
             {project.liveUrl && (
               <a
