@@ -35,7 +35,7 @@ export const Education = () => {
         {education.map((edu, index) => (
           <div
             key={index}
-            className="bg-white/80 dark:bg-slate-700/50 backdrop-blur-sm rounded-xl p-4 lg:p-3 border border-gray-200 dark:border-slate-600/50 hover:border-gray-300 dark:hover:border-slate-500 hover:bg-white dark:hover:bg-slate-700/70 transition-all duration-300 hover:scale-[1.02] hover:shadow-md cursor-pointer"
+            className="bg-white/80 dark:bg-slate-700/50 backdrop-blur-sm rounded-xl p-4 lg:p-3 border border-gray-200 dark:border-slate-600/50 hover:border-gray-300 dark:hover:border-slate-500 hover:bg-white dark:hover:bg-slate-700/70 transition-all duration-300 hover:shadow-md cursor-pointer"
           >
             <h3 className="text-lg lg:text-base font-semibold text-gray-800 dark:text-slate-100">{edu.degree}</h3>
             <p className="text-sm lg:text-xs text-gray-600 dark:text-slate-300 mt-0.5">{edu.field}</p>
