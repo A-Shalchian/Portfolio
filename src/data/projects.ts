@@ -18,6 +18,16 @@ export const projects = [
     images: ["/assets/projects/clipboard-manager/Clipboard-Manager-dark.png", "/assets/projects/clipboard-manager/Clipboard-Manager.png"],
   },
   {
+    id: "searchmate",
+    title: "SearchMate",
+    description: "A fast, lightweight file search app for Windows.",
+    fullDescription: "SearchMate is a fast, lightweight file search application for Windows that lets you find files instantly with a global hotkey. Built with Electron and SQLite for quick indexing and blazing-fast search results.",
+    techStack: ["Electron", "SQLite"],
+    githubUrl: "https://github.com/A-Shalchian/searchmate",
+    thumbnailUrl: "/assets/projects/searchmate/SearchMate.png",
+    images: ["/assets/projects/searchmate/SearchMate.png", "/assets/projects/searchmate/sc1.png", "/assets/projects/searchmate/sc2.png"],
+  },
+  {
     id: "api-key-vault",
     title: "API Key Vault",
     description: "Secure storage, management system for API keys",
