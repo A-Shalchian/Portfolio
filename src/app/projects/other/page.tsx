@@ -25,16 +25,6 @@ const otherProjects = [
     thumbnailUrl: "/assets/projects/streakcode/StreakCode-dark.png",
     images: ["/assets/projects/streakcode/StreakCode-dark.png", "/assets/projects/streakcode/StreakCode.png"],
   },
-  {
-    id: "searchmate",
-    title: "SearchMate",
-    description: "Lightning-fast app launcher and file search utility",
-    fullDescription: "A powerful search and launcher tool inspired by the Everything app. Quickly find and open files, launch apps, open projects in VS Code or terminal - built for maximum productivity and saving time.",
-    techStack: ["Electron", "TypeScript"],
-    githubUrl: undefined,
-    thumbnailUrl: undefined,
-    images: undefined,
-  },
 ];
 
 export default function OtherProjectsPage() {
