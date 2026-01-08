@@ -24,8 +24,9 @@ export const projects = [
     fullDescription: "SearchMate is a fast, lightweight file search application for Windows that lets you find files instantly with a global hotkey. Built with Electron and SQLite for quick indexing and blazing-fast search results.",
     techStack: ["Electron", "SQLite"],
     githubUrl: "https://github.com/A-Shalchian/searchmate",
-    thumbnailUrl: "/assets/projects/searchmate/SearchMate.png",
-    images: ["/assets/projects/searchmate/SearchMate.png", "/assets/projects/searchmate/sc1.png", "/assets/projects/searchmate/sc2.png"],
+    liveUrl: "https://searchmate.vercel.app/",
+    thumbnailUrl: "/assets/projects/searchmate/ss.png",
+    videoUrl: "/assets/projects/searchmate/demo.mp4",
   },
   {
     id: "api-key-vault",
