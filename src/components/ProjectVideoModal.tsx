@@ -97,10 +97,16 @@ export const ProjectVideoModal = ({
     }
   };
 
-  // Reset image index when modal opens
+  // Reset image index when modal opens and autoplay video
   useEffect(() => {
     if (isOpen) {
       setCurrentImageIndex(0);
+      // Autoplay video when modal opens
+      if (videoRef.current) {
+        videoRef.current.play().catch(() => {
+          // Autoplay was prevented, user will need to click play
+        });
+      }
     }
   }, [isOpen]);
 
